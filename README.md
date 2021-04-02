@@ -1,8 +1,7 @@
-From master branch you can see my project. 
+clone the repo 
+checkout to devBranch branch (by default it'd be mster)
 
-clone the repo
-checkout to master branch (by default should be)
-npm i
+npm install
 npm start
 
-good to go
+should be good to go
