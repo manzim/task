@@ -12,6 +12,7 @@
 }
 .bp3-navbar{
   position: fixed !important;
+  z-index: 950 !important;
 }
 
 .bp3-overlay{
