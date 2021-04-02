@@ -2,9 +2,38 @@ import React from 'react'
 
 import './External.css'
 import LandingImage from '../assets/landingBlock.jpg'
-import { Button } from '@blueprintjs/core'
+import { Button, Menu, MenuItem } from '@blueprintjs/core'
+import { Popover2 } from '@blueprintjs/popover2'
 
 function LandingBlock() {
+
+    function popOver() {
+        return (
+            <div>
+                <Popover2
+                    position="bottom-left"
+                    content={
+                        <Menu >
+                            <MenuItem>Hellow</MenuItem>
+                            <MenuItem>hi</MenuItem>
+                            <MenuItem>this is it</MenuItem>
+                        </Menu>
+                    }
+                    target={
+                        <Button
+                            text="..."
+                            intent="none"
+                            minimal={true}
+                            // icon="user"
+                            // rightIcon="chevron-down"
+                            className="tc f6"
+                            onClick={(e) => popOver(e)}
+                        />
+                    }
+                />
+            </div>
+        )
+    }
     return (
         <div className="pa3">
             <section
@@ -13,6 +42,7 @@ function LandingBlock() {
                     backgroundImage: `url(${LandingImage})`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
+                    opacity: .875
                 }}
             >
                 <div className="dtc v-mid tc white ph3 ph4-l">
@@ -31,11 +61,6 @@ function LandingBlock() {
                         <span className="bp3-icon bp3-icon-search"></span>
                     </div>
                 </div>
-            </section>
-            <section>
-                <Button
-                    intent="danger"
-                />
             </section>
         </div>
     )

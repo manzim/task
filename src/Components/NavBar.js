@@ -1,6 +1,7 @@
-import { Button, Menu, MenuItem, Drawer } from '@blueprintjs/core'
-import React, { useEffect, useState} from 'react';
+import { Button, Drawer, Menu, MenuItem } from '@blueprintjs/core'
 import { Popover2 } from '@blueprintjs/popover2';
+import React, { useEffect, useState} from 'react';
+
 import { useHistory } from 'react-router-dom';
 
 import CompanyLogo from '../assets/companylogo.png'
@@ -10,6 +11,8 @@ import './External.css'
 function NavBar() {
     
     let history=useHistory();
+
+    const [isOpen, setIsOpen] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -58,37 +61,28 @@ function NavBar() {
                     <button className="bp3-button bp3-minimal ">For Professionals</button>
                     <button className="bp3-button bp3-minimal mr2" onClick={() => 
                         <Popover2
-                            position="bottom-left"
                             content={
-                                <Menu >
-                                    <MenuItem>Hellow</MenuItem>
-                                    <MenuItem>hi</MenuItem>
-                                    <MenuItem>this is it</MenuItem>
+                                <Menu>
+                                    <MenuItem>hello</MenuItem>
                                 </Menu>
                             }
                             target={
-                                <Button
-                                    text="..."
-                                    intent="none"
-                                    minimal={true}
-                                    // icon="user"
-                                    // rightIcon="chevron-down"
-                                    className="tc f6"
-                                    onClick={(e) => PopOverDhamaka(e)}
-                                />
+                                <Button className="b" text="button" />
                             }
-                        /> 
+                            position="bottom-left"
+                        />
                     }>...</button>  
                     <button className="bp3-button bp3-minimal  outline br3">Submit Photos</button>
                     <span className="bp3-navbar-divider b ml3"></span>
                     <button className="bp3-button bp3-minimal b">Login</button>
                     <Button className="b" intent="warning" text="Join Free" />
                 </div>
+
                 <div className="drawer_button bn fr pt3">
                     <Button
                         icon="menu"
                         className="gray tr-m tr-l tr"
-                        // onClick={() => setOpen(true)}
+                        onClick={() => setIsOpen(true)}
                         active={false}
                         minimal={true}
                         fill={true}
@@ -98,13 +92,13 @@ function NavBar() {
 
                     <Drawer
                         className="flex flex-column bg-near-white"
-                        isOpen={false}
+                        isOpen={isOpen}
                         size={"260px"}
-                        style={{ backgroundColor: '#EEEEEE', zIndex: 999 }
+                        style={{ backgroundColor: '#EEEEEE' }
                         }
                         vertical={false}
                         canOutsideClickClose={true}
-                        // onClose={() => setOpen(false)}
+                        onClose={() => setIsOpen(false)}
                         position={"left"}
                         hasBackdrop={true}
                     >
